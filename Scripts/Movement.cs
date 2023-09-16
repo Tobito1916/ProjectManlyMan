@@ -5,11 +5,10 @@ public partial class Movement : CharacterBody2D
 	[Export]
 	public int Speed { get; set; } = 400;
 
-	private AnimationPlayer _animationPlayer;
-
+	private AnimatedSprite2D _animatedSprite;
     public override void _Ready()
     {
-        _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+        _animatedSprite = GetNode<AnimatedSprite2D>("CharacterSprite");
     }
 	public void GetInput()
 	{
@@ -18,12 +17,28 @@ public partial class Movement : CharacterBody2D
 		Velocity = inputDirection * Speed;
 		if (Input.IsActionPressed("right"))
 		{
-			_animationPlayer.Play("walk_right");
+			_animatedSprite.Play("walk_right");
+		}
+		else if (Input.IsActionPressed("left"))
+		{
+			_animatedSprite.Play("walk_left");
+		}
+		else if (Input.IsActionPressed("up"))
+		{
+			_animatedSprite.Play("walk_right");
+		}
+		else if (Input.IsActionPressed("down"))
+		{
+			_animatedSprite.Play("walk_left");
 		}
 		else
 		{
-			_animationPlayer.Stop();
+			_animatedSprite.Play("idle");
 		}
+	}
+
+	public override void _Process(double delta){
+	
 	}
 
 	public override void _PhysicsProcess(double delta)
