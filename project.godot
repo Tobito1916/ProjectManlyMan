@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Project Manly Man"
-run/main_scene="res://node_2d.tscn"
+run/main_scene="res://Scenes/node_2d.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://resources/Character/icon.svg"
 
 [dotnet]
 
