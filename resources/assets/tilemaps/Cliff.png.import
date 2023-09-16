@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw8vxtdwshunk"
-path="res://.godot/imported/RocksnStumps.png-3b79aaceef37db7e58a6a846b7af7579.ctex"
+uid="uid://cqfaqtdc1vjvd"
+path="res://.godot/imported/Cliff.png-ce7e53dd9fb1161aab687d1a5d6e6394.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemaps/RocksnStumps.png"
-dest_files=["res://.godot/imported/RocksnStumps.png-3b79aaceef37db7e58a6a846b7af7579.ctex"]
+source_file="res://resources/assets/tilemaps/Cliff.png"
+dest_files=["res://.godot/imported/Cliff.png-ce7e53dd9fb1161aab687d1a5d6e6394.ctex"]
 
 [params]
 
