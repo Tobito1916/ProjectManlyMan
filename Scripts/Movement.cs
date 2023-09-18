@@ -3,13 +3,13 @@ using Godot;
 public partial class Movement : CharacterBody2D
 {
 	[Export]
-	public int Speed { get; set; } = 400;
+	public int Speed { get; set; } = 100;
 
 	private AnimatedSprite2D _animatedSprite;
-    public override void _Ready()
-    {
-        _animatedSprite = GetNode<AnimatedSprite2D>("CharacterSprite");
-    }
+	public override void _Ready()
+	{
+		_animatedSprite = GetNode<AnimatedSprite2D>("CharacterSprite");
+	}
 	public void GetInput()
 	{
 
