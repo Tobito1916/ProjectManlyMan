@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw8vxtdwshunk"
-path="res://.godot/imported/RocksnStumps.png-571e487e290f0a52b76e48a2b6c6a4e0.ctex"
+uid="uid://ccbsfug82rs6o"
+path="res://.godot/imported/GrassNDirt.png-b642e9a9311ff0c76891cab7c00dc41b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/assets/tilemaps/RocksnStumps.png"
-dest_files=["res://.godot/imported/RocksnStumps.png-571e487e290f0a52b76e48a2b6c6a4e0.ctex"]
+source_file="res://resources/assets/tilemaps/forest/GrassNDirt.png"
+dest_files=["res://.godot/imported/GrassNDirt.png-b642e9a9311ff0c76891cab7c00dc41b.ctex"]
 
 [params]
 
