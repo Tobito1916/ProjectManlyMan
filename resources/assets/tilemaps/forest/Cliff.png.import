@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://33w7mcmbb6tp"
-path="res://.godot/imported/Trees.png-d8055e1a906602c4162fe97f90d5538c.ctex"
+uid="uid://cqfaqtdc1vjvd"
+path="res://.godot/imported/Cliff.png-4b5ae3ecb9fd5df2b6fdd084321f58ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/assets/tilemaps/Trees.png"
-dest_files=["res://.godot/imported/Trees.png-d8055e1a906602c4162fe97f90d5538c.ctex"]
+source_file="res://resources/assets/tilemaps/forest/Cliff.png"
+dest_files=["res://.godot/imported/Cliff.png-4b5ae3ecb9fd5df2b6fdd084321f58ca.ctex"]
 
 [params]
 
