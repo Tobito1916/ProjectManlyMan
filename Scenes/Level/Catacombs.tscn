@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cphtngb1te516"]
+
+[ext_resource type="PackedScene" uid="uid://b8373ma72tx0q" path="res://Scenes/Maps/Catacombs.tscn" id="2_vwktf"]
+
+[node name="Catacombs" type="Node2D"]
+
+[node name="Catacombs" parent="." instance=ExtResource("2_vwktf")]
