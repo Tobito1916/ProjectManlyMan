@@ -1,46 +1,28 @@
 extends Node2D
 
 var selected_unit : CharacterBody2D
-var players : CharacterBody2D
+var player : CharacterBody2D
 var enemies : Array[CharacterBody2D]
 
-func _get_selected_unit ():
-	var space = get_world_2d().direct_space_state
-	var query = PhysicsPointQueryParameters2D.new()
-	query.position = get_global_mouse_position()
-	var intersection = space.intersect_point(query, 1)
-	
-	if !intersection.is_empty():
-		return intersection[0].collider
-		
-	return null
-	
-func _try_select_unit ():
-	var unit = _get_selected_unit()
-	
-	if unit != null and unit.is_player:
-		_select_unit(unit)
-	else:
-		_unselect_unit()
-	
-func _select_unit (unit):
-	_unselect_unit()
-	selected_unit = unit
-	selected_unit.toggle_selection_visual(true)
-	
-func _unselect_unit ():
-	if selected_unit != null:
-		selected_unit.toggle_selection_visual(false)
-		
-	selected_unit = null
-	
-func _try_command_unit ():
-	if selected_unit == null:
-		return
-		
-	var target = _get_selected_unit()
-	
-	if target != null and target.is_player == false:
-		selected_unit.set_target(target)
-	else:
-		selected_unit.move_to_location(get_global_mouse_position())
+@export var max_enemies : int = 6
+@export var spawn_radius : int = 200
+@export var spawn_chance : int = 1
+
+var enemy_scene = preload("res://scenes/characters/Enemy.tscn")
+
+func _process (delta):
+	# Spawn enemies in a radius around the player
+	if enemies.size() < max_enemies:
+		var spawn = randi() % 100
+		if spawn < spawn_chance:
+			var enemy = enemy_scene.instantiate()
+			# Random position on a fixed circle around the player
+			var spawn_pos = player.global_position + Vector2.RIGHT.rotated(randf() * 2 * PI) * spawn_radius
+			# prevent spawning outside the map
+			spawn_pos.x = clamp(spawn_pos.x, 0, get_viewport_rect().size.x)
+			spawn_pos.y = clamp(spawn_pos.y, 0, get_viewport_rect().size.y)
+
+			# Set the enemy position to the spawn position
+			enemy.set_position(spawn_pos)
+			add_child(enemy)
+			enemies.append(enemy)
