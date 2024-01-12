@@ -22,7 +22,7 @@ func get_input ():
 		animated_sprite.play("idle")
 		katana.play_animation("idle")
 	else:
-		if inputDirection.x == 0: animated_sprite.flip_h = true
+		animated_sprite.flip_h = inputDirection.x < 0 or inputDirection.x == 0 and animated_sprite.flip_h
 		katana.set_flip_h(animated_sprite.flip_h)
 		animated_sprite.play("walk")
 
