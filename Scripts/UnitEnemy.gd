@@ -7,29 +7,28 @@ var agent : NavigationAgent2D
 @export var attack_rate : float = 0.5
 var last_attack_time : float
 
+var is_spawned : bool = false
+
 var target : CharacterBody2D
 
 func _ready ():	
 	game_manager.enemies.append(self)
 	agent = $NavigationAgent2D
+	animated_sprite.connect("animation_finished", on_spawn_finish)
 	animated_sprite.play("spawn")
 
+func on_spawn_finish ():
+	is_spawned = true
+
 func _physics_process(delta):
-	if agent.is_navigation_finished() or animated_sprite.animation == "spawn":
+	if agent.is_navigation_finished() or !is_spawned:
 		return
 	
 	var direction = global_position.direction_to(agent.get_next_path_position())
 	velocity = direction * move_speed
 
-	if velocity.x < 0:
-		animated_sprite.play("default")
-		animated_sprite.flip_h = false
-	elif velocity.x > 0:
-		animated_sprite.play("default")
-		animated_sprite.flip_h = true
-	else:
-		animated_sprite.play("default")
-		
+	animated_sprite.flip_h = velocity.x > 0	
+	animated_sprite.play("default")
 	
 	if is_knockback_enabled and knockback_direction != Vector2(0, 0):
 		knockback_duration -= delta

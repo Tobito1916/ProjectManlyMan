@@ -129,7 +129,8 @@ knockback_duration = 0.3
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e86jo")
 animation = &"spawn"
-frame = 1
+frame = 5
+frame_progress = 1.0
 
 [node name="Hurtbox" type="Area2D" parent="AnimatedSprite2D"]
 script = ExtResource("3_s0eyd")
